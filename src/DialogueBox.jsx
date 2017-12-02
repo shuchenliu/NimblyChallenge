@@ -7,8 +7,13 @@ class DialogueBox extends Component {
   render() {
     return (
       <Paper className="DialogueBox">
-        <ChatBubble chatType="user"/>
-        <ChatBubble chatType="bot"/>
+
+
+        {/* Typing placeholders.
+            Will always be there,
+            visibility depending on state of the search bar*/}
+        <ChatBubble chatType="user" isTyping={true}/>
+        <ChatBubble chatType="bot" isTyping={true}/>
       </Paper>
     );
   };

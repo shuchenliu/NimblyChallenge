@@ -72,7 +72,8 @@
 }
 
 .ChatBubble {
-  width: 40%;
+  max-width: 40%;
+  min-width: 30px;
   font-size: 20px;
   text-align: left;
   font-family: 'Lora', serif;
