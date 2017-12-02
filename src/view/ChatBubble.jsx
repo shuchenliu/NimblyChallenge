@@ -12,12 +12,15 @@ class ChatBubble extends Component {
     let content;
 
     // if this is a typing placeholder
-    if (this.props.isTyping) {
+    if (this.props.typingHolder) {
       const gifSelected = flexDirection === 'flex-right' ? typingGif : typingGif1;
       content = (<img src={gifSelected} alt="Typing..." height="30" />);
+    } else {
+      // otherwise this is a regular text input
+
+
     }
 
-    // otherwise this is a regular text input
     return (
       <div className={bubbleHolderClass}>
         <div className={bubbleClasses}>
