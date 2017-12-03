@@ -2,7 +2,7 @@ NimblyChallenge (or Nibucha)
 ---
 
 ### Introduction
-Developed with React, the projects creates a simple UI for weather querying.
+Developed with React and Redux, the projects creates a simple UI for weather querying.
 
 ### Usage
 
