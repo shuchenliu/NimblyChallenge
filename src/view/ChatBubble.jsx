@@ -85,7 +85,7 @@ class ChatBubble extends Component {
                   <span>Humidity: {weather.humidity}%</span>
               </li>
               <li>
-                  <span>Air pressure: {weather.air_pressure} mbar</span>
+                  <span>Air pressure: {weather.air_pressure.toFixed(2)} mbar</span>
               </li>
             </ul>
           </div>

@@ -61,7 +61,7 @@ class Search extends Component {
     // if no key was pressed within last second
     const newTypingTimer = setTimeout(() => {
       this.updateTypingTimer(-1);
-    },500);
+    },700);
 
     if (this.state.typingTimerID !== -1) {
       clearTimeout(this.state.typingTimerID);
