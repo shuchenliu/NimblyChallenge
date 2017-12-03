@@ -14,6 +14,8 @@ class Search extends Component {
     this.getOwnState = this.getOwnState.bind(this);
     this.updateTypingTimer = this.updateTypingTimer.bind(this);
     this.setTypingTimer = this.setTypingTimer.bind(this);
+    this.handleButtonClick = this.handleButtonClick.bind(this);
+    this.toggleFetchFlag = this.toggleFetchFlag.bind(this);
     this.onChange = this.onChange.bind(this);
 
     this.state = {...(this.getOwnState()), textValue: 'Wuhan'};
@@ -42,10 +44,13 @@ class Search extends Component {
     store.unsubscribe(this.onChange);
   }
 
-  handleTextChange() {
+  handleTextChange(e) {
       // 1. Update typing timer:
       this.setTypingTimer();
       // 2. Update input value for further data fetching
+      this.setState({
+        textValue: e.target.value,
+      });
   }
 
   setTypingTimer() {
@@ -63,15 +68,26 @@ class Search extends Component {
   }
 
   handleButtonClick() {
-    // Dispatch 2 sets of data:
-    // 1. State's value,
-    // 2. Get Avatar
+      // issue queries to API and other state change requests
+      store.dispatch(Actions.addChat('query', this.state.textValue));
+      store.dispatch(Actions.toggleFetchFlag());
+  }
 
+  toggleFetchFlag() {
+      store.dispatch(Actions.toggleFetchFlag());
   }
 
   render() {
+    const buttonStyle = {
+      color: 'white',
+      marginLeft: '10px',
+      width: '10px',
+      background:'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+    };
+
+
     return (
-      <span className="Lora"> I wanna know the weather of
+      <span className="Lora search"> I wanna know the weather of
         <TextField
           id="SearchBar"
           className="TextField Lora"
@@ -80,14 +96,15 @@ class Search extends Component {
                         fontFamily: 'Lora',
                         fontSize:20,
                         fontWeight: 'Bold'}}
-          hintStyle={{ width: '120px', textAlign: 'center' }}
+          hintStyle={{width: '120px', textAlign: 'center' }}
           style={{ width: '120px' }}
           defaultValue={this.state.textValue}/>
         ,
         <FlatButton
-          className="SearchButton"
           label="GO!"
-          labelStyle={{ fontSize: 20, fontFamily: 'Lora'}}
+          labelStyle={{ fontSize: 20, fontFamily: 'Pacifico'}}
+          style={buttonStyle}
+          onClick={this.handleButtonClick}
           />
       </span>
     );

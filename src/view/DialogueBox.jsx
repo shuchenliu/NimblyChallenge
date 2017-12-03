@@ -18,6 +18,8 @@ class DialogueBox extends Component {
   getOwnState() {
     return {
       typingTimerID: store.getState().typingTimerID,
+      isFetchingData: store.getState().isFetchingData,
+      chats: store.getState().chats,
     };
   }
 
@@ -35,19 +37,32 @@ class DialogueBox extends Component {
 
   render() {
     // Hide user typing bubble if TypingTimerID is -1
-    const userTypingBubble = this.state.typingTimerID === -1
+    const defaultQuestion = 'Hi, I am the WeatherBot. What can I do for you today?';
+    const defaultQuestionBubble = <ChatBubble userType="bot" content={defaultQuestion} />;
+
+  const userTypingBubble = this.state.typingTimerID === -1
       ? null
-      : <ChatBubble chatType="user" typingHolder={true} />;
+      : <ChatBubble userType="user" chatType="typingHolder" />;
+
+    const botTypingBubble = !this.state.isFetchingData
+        ? null
+        : <ChatBubble userType="bot" chatType="typingHolder" />;
+
+
+      const bubbles = this.state.chats.map((item, index) => {
+        return <ChatBubble key={index} userType="user" chatType={item.chatType} content={item.content}/>
+      });
 
     return (
       <Paper className="DialogueBox">
-
+        {defaultQuestionBubble}
+        {bubbles}
 
         {/* Typing placeholders.
             Will always be there,
             visibility depending on state of the search bar*/}
         {userTypingBubble}
-        <ChatBubble chatType="bot" typingHolder={true} />
+        {botTypingBubble}
       </Paper>
     );
   };
