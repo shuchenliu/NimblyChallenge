@@ -28,16 +28,18 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  width: 100%;
 }
 
 .header {
-  font-size: 45pt;
+  font-size: 50px;
   color: white;
+  max-width: 80%;
+  text-align: center;
 }
 
-.lowerHeader {
-  padding-left: 70%;
-  font-size: 8pt;
+.fixedText {
+  font-size: 20px;
 }
 
 .TextField {
@@ -47,14 +49,16 @@
 
 .search {
   margin-bottom: 5px;
+  text-align: center;
 }
 
 .DialogueBox {
-  height: 70%;
-  width: 70%;
+  min-height: 60%;
+  width: 80%;
   background: #eaecef;
   overflow-y: scroll;
   padding-top: 20px;
+  margin-bottom: 10px;
 }
 
 .ChatBubbleHolder {
@@ -72,7 +76,7 @@
 }
 
 .ChatBubble {
-  max-width: 40%;
+  max-width: 50%;
   min-width: 30px;
   font-size: 20px;
   text-align: left;

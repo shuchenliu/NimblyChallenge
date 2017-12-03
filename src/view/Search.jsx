@@ -141,7 +141,8 @@ class Search extends Component {
     };
 
     return (
-      <span className="Lora search"> I wanna know the weather of
+      <span className="Lora search">
+        <span className="fixedText">I wanna know the weather of</span>
         <TextField
           id="SearchBar"
           className="TextField Lora"
@@ -151,8 +152,8 @@ class Search extends Component {
                         fontFamily: 'Lora',
                         fontSize:20,
                         fontWeight: 'Bold'}}
-          hintStyle={{width: 'auto', textAlign: 'center' }}
-          style={{ width: 'auto' }}
+          hintStyle={{width: '130px', textAlign: 'center' }}
+          style={{ width: '130px' }}
           defaultValue={this.state.textValue}
           onKeyPress={this.handleKeyPress}/>
         ,
