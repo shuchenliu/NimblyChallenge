@@ -5,7 +5,7 @@ export default (state, action) => {
     case ActionTypes.SET_TYPING:
       const {typingTimerID} = action;
       return {...state, typingTimerID: typingTimerID};
-  
+
     case ActionTypes.TOGGLE_FETCH_FLAG:
       return {...state, isFetchingData: !(state.isFetchingData)};
 

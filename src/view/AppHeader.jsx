@@ -2,7 +2,7 @@ import React from 'react';
 
 
 // Constants
-const header = 'the WeatherBot';
+const header = 'WeatherBot';
 
 //pure container for holding header
 const AppHeader = () => (
