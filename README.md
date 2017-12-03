@@ -4,6 +4,27 @@ NimblyChallenge (or Nibucha)
 ### Introduction
 Developed with React and Redux, the projects creates a simple UI for weather querying.
 
+### Source Files
+```
+src
+├── MetaWeatherAPI
+│   └── queries.js
+└── data-flow
+    └── ActionTypes.js
+    └── Actions.js
+    └── Reducer.js
+    └── Store.js
+├── view
+│   └── ...
+    
+```
+
+- `MetaWeatherAPI` contains the wrapper methods for querying MetaWeather's API. *Note* that `MetaWeather` does not support CORS thus a CORS-proxy server was used.
+
+- `data-flow` contains Redux-based data control schemes.
+- `view` contains React components that render interactive view, dispatch requests, and trigger data flow.
+
+
 ### Usage
 
 #### install
